@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -39,7 +39,7 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1.json
   def update
     respond_to do |format|
-      if @blog.update(blog_params)
+      if @blog.update(params.require(:portfolio).permit(:title, :subtitle, :body))
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
       else
         format.html { render :edit }
@@ -55,11 +55,21 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url, notice: 'Blog was successfully deleted.' }
     end
   end
+  
+  def toggle_status
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
+    end
+      
+    redirect_to blogs_url, notice: 'Post Status Has Been Updated'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
