@@ -39,7 +39,7 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1.json
   def update
     respond_to do |format|
-      if @blog.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+      if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
       else
         format.html { render :edit }
