@@ -54,3 +54,12 @@ puts "9 portfolio item created"
 end
 
 puts "3 technologies created"
+
+1.times do |admin|
+  User.create!(
+                email: 'test@test.com',
+                name: 'Charlie Brown admin',
+                password: '123456',
+                password_confirmation: '123456'
+)
+end
