@@ -44,7 +44,7 @@ module ApplicationHelper
       },
       {
         url: news_path,
-        title: "News"
+        title: "Tech News"
       },
       
       ]
