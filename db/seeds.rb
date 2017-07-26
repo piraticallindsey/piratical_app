@@ -1,6 +1,6 @@
 3.times do |topic|
   Topic.create!(
-    title: "Topice #{topic}"
+    title: "Topic #{topic}"
 )
 end
 
