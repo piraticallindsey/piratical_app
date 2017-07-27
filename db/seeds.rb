@@ -60,6 +60,9 @@ puts "3 technologies created"
                 email: 'test@test.com',
                 name: 'Charlie Brown admin',
                 password: '123456',
-                password_confirmation: '123456'
+                password_confirmation: '123456',
+                roles: 'site_admin'
 )
 end
+
+puts '1 admin user'
