@@ -178,6 +178,8 @@ h6, .h6 {
 .card-block {
   color: black;
   text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .auth-links a {
   color: black;
@@ -234,15 +236,11 @@ h6, .h6 {
   height: 400px;
 }
 .app-card-container a {
-  color: grey;
+  color: darkslategrey;
 }
 .app-card-container a:hover {
   color: blue;
   text-decoration: none;
-}
-.card-block {
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 .skill  {
   margin-top: 10px;
